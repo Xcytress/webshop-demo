@@ -1,0 +1,15 @@
+<nav class="navbar navbar-light bg-light">
+  <span class="navbar-brand mb-0 h1">Webshop Demo</span>
+</nav>
+<div class="row">
+  <div class="col-md-9">
+    <app-products #productsC [hidden]="orderFinished"></app-products>
+  </div>
+  <div class="col-md-3">
+    <app-shoppingcart (onOrderFinished)=finishOrder($event) #shoppingcartC
+                       [hidden]="orderFinished"></app-shoppingcart>
+  </div>
+  <div class="col-md-6 offset-3">
+    <app-orders #ordersC [hidden]="!orderFinished"></app-orders>
+  </div>
+</div>

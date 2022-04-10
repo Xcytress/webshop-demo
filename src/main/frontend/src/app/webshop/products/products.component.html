@@ -1,0 +1,19 @@
+<table class="table">
+  <tbody *ngFor="let order of shoppingCart">
+  <tr>
+    <th scope="row">{{order.product.name}}</th>
+    <td>{{order.product.price}}€</td>
+    <td><div class="col-4 padding-0" *ngIf="!isProductSelected(order.product)">
+      <input type="number" min="0" class="form-control" [(ngModel)]=order.amount>
+    </div></td>
+    <td>
+      <button class="btn btn-primary" (click)="addToCart(order)" [disabled]="order.amount <= 0" *ngIf="!isProductSelected(order.product)">
+        Add To Cart
+      </button>
+      <button class="btn btn-primary btn-block" (click)="removeFromCart(order)" *ngIf="isProductSelected(order.product)">
+        Remove From Cart
+      </button>
+    </td>
+  </tr>
+  </tbody>
+</table>

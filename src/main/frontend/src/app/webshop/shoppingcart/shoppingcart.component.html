@@ -1,0 +1,18 @@
+<div class="card text-white bg-primary mb-3" style="max-width: 18rem;">
+  <div class="card-header text-center">Shopping Cart</div>
+  <div class="card-body">
+    <ul>
+      <li *ngFor="let order of shoppingCart.items">
+        {{ order.product.name }} - {{ order.amount}} pcs.
+      </li>
+    </ul>
+
+    <hr>
+    <h6 class="card-title">Total: ${{total}}</h6>
+    <hr>
+
+    <button class="btn btn-dark" (click)="finishOrder()">
+      Checkout
+    </button>
+  </div>
+</div>
